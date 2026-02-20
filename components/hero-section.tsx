@@ -43,7 +43,7 @@ export function HeroSection() {
               left: product.left,
               transitionDelay: `${1.2 + product.delay}s`,
               animation: loaded
-                ? `floatBubble${i % 3} ${3 + (i % 2)}s ease-in-out infinite ${product.delay}s`
+                ? `playFloat${i % 4} ${6 + (i % 4)}s cubic-bezier(0.45, 0, 0.55, 1) infinite ${product.delay}s`
                 : "none",
             }}
           >
@@ -114,20 +114,30 @@ export function HeroSection() {
 
       {/* Keyframe styles */}
       <style jsx>{`
-        @keyframes floatBubble0 {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          33% { transform: translateY(-12px) translateX(4px); }
-          66% { transform: translateY(6px) translateX(-3px); }
+        @keyframes playFloat0 {
+          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+          25% { transform: translate(8px, -12px) rotate(1.2deg); }
+          50% { transform: translate(-6px, -4px) rotate(-1deg); }
+          75% { transform: translate(10px, 6px) rotate(0.8deg); }
         }
-        @keyframes floatBubble1 {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          25% { transform: translateY(8px) translateX(-6px); }
-          75% { transform: translateY(-10px) translateX(5px); }
+         @keyframes playFloat1 {
+          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+          20% { transform: translate(-10px, -10px) rotate(-1.4deg); }
+          55% { transform: translate(6px, -16px) rotate(1.1deg); }
+          80% { transform: translate(-4px, 8px) rotate(-0.6deg); }
         }
-        @keyframes floatBubble2 {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          50% { transform: translateY(-14px) translateX(-4px); }
+        @keyframes playFloat2 {
+          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+          30% { transform: translate(12px, 4px) rotate(1deg); }
+          60% { transform: translate(-8px, -14px) rotate(-1.2deg); }
+          85% { transform: translate(4px, -6px) rotate(0.7deg); }
         }
+        @keyframes playFloat3 {
+          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+          35% { transform: translate(-12px, 6px) rotate(-1deg); }
+          65% { transform: translate(8px, -12px) rotate(1.3deg); }
+          90% { transform: translate(-2px, -4px) rotate(-0.5deg); }
+        }  
       `}</style>
     </section>
   )
