@@ -93,7 +93,6 @@ export function ContactSection() {
                 <input type="hidden" name="_captcha" value="false" />
                 <input name="name" type="text" required />
                 <input name="email" type="email" required />
-                <textarea name="message" required></textarea>
                 {/* Honeypot */}
                 <input type="text" name="_honey" className="hidden" />
                 {/* Disable captcha */}
