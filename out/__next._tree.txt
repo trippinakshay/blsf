@@ -1,0 +1,11 @@
+:HL["/_next/static/chunks/cb6dc07a9952688b.css","style"]
+:HL["/_next/static/chunks/0c5898b257d0d15c.css","style"]
+:HL["/_next/static/media/0c8f209abc35ee02-s.p.a4b9a15b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/6bd983bd58a87a3d-s.p.cf80dd39.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/images/cert-coirboard.jpg","image"]
+:HL["/images/cert-coconutboard.jpg","image"]
+:HL["/images/cert-apeda.jpg","image"]
+:HL["/images/cert-msme.jpg","image"]
+:HL["/images/cert-eco.jpg","image"]
+0:{"buildId":"26U6DRjATy7gZwP6QhNn8","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
