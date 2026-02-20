@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   description: 'Connecting global buyers with premium coir products. Trusted sourcing platform for coir pith, coir fibre, grow bags and more from India.',
 }
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
 export default function RootLayout({
   children,
 }: Readonly<{

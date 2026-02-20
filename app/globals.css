@@ -87,10 +87,27 @@
   * {
     @apply border-border outline-ring/50;
   }
+ 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
+
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+
+  /* Prevent accidental horizontal overflow */
+  html, body {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Media should never overflow */
+  img, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
   }
 }
