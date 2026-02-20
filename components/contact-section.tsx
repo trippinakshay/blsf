@@ -85,10 +85,15 @@ export function ContactSection() {
           <ScrollReveal delay={200}>
             <div className="rounded-xl border border-border bg-card p-8 shadow-sm">
               <form
-                action={`https://formsubmit.co/export@bioloopsupply.com`}
+                action={`https://formspree.io/f/xgolllry`}
                 method="POST"
-                className="flex flex-col gap-5"
+                className="flex flex-col gap-6"
               >
+                <input type="hidden" name="_subject" value="New Export Enquiry - BioLoop Supply" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input name="name" type="text" required />
+                <input name="email" type="email" required />
+                <textarea name="message" required></textarea>
                 {/* Honeypot */}
                 <input type="text" name="_honey" className="hidden" />
                 {/* Disable captcha */}
