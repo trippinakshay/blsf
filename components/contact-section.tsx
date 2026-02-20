@@ -89,10 +89,6 @@ export function ContactSection() {
                 method="POST"
                 className="flex flex-col gap-6"
               >
-                <input type="hidden" name="_subject" value="New Export Enquiry - BioLoop Supply" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input name="name" type="text" required />
-                <input name="email" type="email" required />
                 {/* Honeypot */}
                 <input type="text" name="_honey" className="hidden" />
                 {/* Disable captcha */}
