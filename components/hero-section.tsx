@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useState } from "react"
 
 const floatingProducts = [
@@ -22,11 +23,14 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
+      <div className="absolute inset-0 relative">
+        <Image
           src="/images/hero-bg.jpg"
           alt="Coir manufacturing facility with coconut palms at sunset"
-          className="h-full w-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f05]/90 via-[#0a1f05]/65 to-[#0a1f05]/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f05]/60 via-transparent to-[#0a1f05]/20" />
