@@ -79,11 +79,11 @@ function ProductCard({
   return (
     <ScrollReveal delay={index * 150}>
       <div className="group overflow-hidden rounded-xl border border-border bg-card transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
-        <div className="aspect-[4/3] overflow-hidden">
+        <div className="w-full aspect-[4/3] overflow-hidden">
           <img
             src={product.image}
             alt={product.title}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="block w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
         <div className="p-6">
