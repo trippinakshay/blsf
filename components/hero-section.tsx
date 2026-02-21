@@ -22,19 +22,20 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 relative">
-        <Image
-          src="/images/hero-bg.jpg"
-          alt="Coir manufacturing facility with coconut palms at sunset"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f05]/90 via-[#0a1f05]/65 to-[#0a1f05]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f05]/60 via-transparent to-[#0a1f05]/20" />
-      </div>
+    {/* Background Image */}
+    <div className="absolute inset-0 z-0 relative">
+      <Image
+        src="/images/hero-bg.jpg"
+        alt="Coir manufacturing facility with coconut palms at sunset"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+        unoptimized
+      />
+    <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f05]/90 via-[#0a1f05]/65 to-[#0a1f05]/30" />
+    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f05]/60 via-transparent to-[#0a1f05]/20" />
+  </div>
 
       {/* Floating Product Labels */}
       <div className="absolute inset-0 z-10 pointer-events-none hidden lg:block">
