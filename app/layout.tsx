@@ -8,8 +8,10 @@ const dmSerif = DM_Serif_Display({ weight: "400", subsets: ["latin"], variable: 
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora", weight: ["400", "600", "700", "800"] })
 
 export const metadata: Metadata = {
-  // Public-facing brand (no “Private Limited” here)
-  title: "Bio Loop Supply | Cocopeat & Coir Exporter",
+  title: {
+    default: "Bio Loop Supply",
+    template: "%s | Bio Loop Supply",
+  },
   description:
     "Bio Loop Supply is an India-based B2B exporter of low EC cocopeat blocks, grow bags and coir substrates.",
 
