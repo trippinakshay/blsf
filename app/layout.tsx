@@ -76,12 +76,25 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Bio Loop Supply",
+              legalName: "Bio Loop Supply Private Limited",
               alternateName: "Bio Loop Supply Private Limited",
               url: "https://www.bioloopsupply.com/",
               // Point to a logo you control in /public (recommended)
               // Put an icon-only PNG at: public/logo.png
               // Or change to /favicon.png if you prefer:
               logo: "https://www.bioloopsupply.com/favicon.png",
+              foundingDate: "2025",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "IN"
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91-9423766117",
+                contactType: "sales",
+                areaServed: ["UAE", "Europe", "Canada"],
+                availableLanguage: ["English"]
+              }
             }),
           }}
         />
