@@ -7,6 +7,11 @@ const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" })
 const dmSerif = DM_Serif_Display({ weight: "400", subsets: ["latin"], variable: "--font-dm-serif" })
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora", weight: ["400", "600", "700", "800"] })
 
+/**
+ * IMPORTANT:
+ * 1) Put the new OG image at: /public/images/google-thumbnail-v2.jpg
+ * 2) Then it will be available at: https://www.bioloopsupply.com/images/google-thumbnail-v2.jpg
+ */
 export const metadata: Metadata = {
   title: {
     default: "Bio Loop Supply",
@@ -18,10 +23,10 @@ export const metadata: Metadata = {
   // Helps Google understand “site name”
   applicationName: "Bio Loop Supply",
 
+  // Ensures relative URLs in metadata resolve correctly (OG/Twitter images)
+  metadataBase: new URL("https://www.bioloopsupply.com"),
+
   // Favicons (max compatibility)
-  // Put these files in /public:
-  // - public/favicon.ico
-  // - public/favicon.png  (optional but recommended)
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -38,6 +43,32 @@ export const metadata: Metadata = {
     url: "https://www.bioloopsupply.com/",
     siteName: "Bio Loop Supply",
     type: "website",
+    images: [
+      {
+        url: "/images/google-thumbnail-2026.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bio Loop Supply - cocopeat blocks and grow bags",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Bio Loop Supply",
+    description:
+      "India-based B2B exporter of cocopeat blocks, grow bags and coir substrates for global buyers.",
+    images: ["/images/google-thumbnail-2026.jpg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
   },
 }
 
@@ -80,21 +111,21 @@ export default function RootLayout({
               alternateName: "Bio Loop Supply Private Limited",
               url: "https://www.bioloopsupply.com/",
               // Point to a logo you control in /public (recommended)
-              // Put an icon-only PNG at: public/logo.png
-              // Or change to /favicon.png if you prefer:
               logo: "https://www.bioloopsupply.com/favicon.png",
+              // Helps Google associate a representative image with the entity/site
+              image: "https://www.bioloopsupply.com/images/google-thumbnail-2026.jpg",
               foundingDate: "2025",
               address: {
                 "@type": "PostalAddress",
-                addressCountry: "IN"
+                addressCountry: "IN",
               },
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+91-9423766117",
                 contactType: "sales",
                 areaServed: ["UAE", "Europe", "Canada"],
-                availableLanguage: ["English"]
-              }
+                availableLanguage: ["English"],
+              },
             }),
           }}
         />
