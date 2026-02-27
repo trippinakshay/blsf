@@ -22,29 +22,54 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-    {/* Background Image */}
+      {/* Background (CSS) + Hidden SERP Image */}
       <div className="absolute inset-0 z-0">
         <div className="relative h-full w-full">
-          <Image
-            src="/images/hero-bg.jpg"
-            alt="Coir manufacturing facility with coconut palms at sunset"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-            unoptimized
+          {/* CSS background (not an <img>) */}
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "url('/images/hero-bg.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           />
+
+          {/* Hidden but crawlable representative image (real <img>) */}
+          <Image
+            src="/images/google-thumbnail-2026.jpg"
+            alt="Cocopeat blocks and grow bags - Bio Loop Supply"
+            width={1200}
+            height={630}
+            priority
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              width: 1,
+              height: 1,
+              padding: 0,
+              margin: -1,
+              overflow: "hidden",
+              clip: "rect(0,0,0,0)",
+              whiteSpace: "nowrap",
+              border: 0,
+            }}
+          />
+
+          {/* Overlays */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f05]/90 via-[#0a1f05]/65 to-[#0a1f05]/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f05]/60 via-transparent to-[#0a1f05]/20" />
         </div>
-      </div>         
+      </div>
 
       {/* Floating Product Labels */}
       <div className="absolute inset-0 z-10 pointer-events-none hidden lg:block">
         {floatingProducts.map((product, i) => (
           <div
             key={product.label}
-            className={`absolute transition-all duration-1000 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
+            className={`absolute transition-all duration-1000 ${
+              loaded ? "opacity-100 scale-100" : "opacity-0 scale-75"
+            }`}
             style={{
               top: product.top,
               left: product.left,
@@ -57,7 +82,13 @@ export function HeroSection() {
             <div
               className={`
                 backdrop-blur-md border border-white/20 rounded-full shadow-lg shadow-black/10
-                ${product.size === "lg" ? "px-5 py-2.5 text-sm" : product.size === "md" ? "px-4 py-2 text-xs" : "px-3 py-1.5 text-[11px]"}
+                ${
+                  product.size === "lg"
+                    ? "px-5 py-2.5 text-sm"
+                    : product.size === "md"
+                      ? "px-4 py-2 text-xs"
+                      : "px-3 py-1.5 text-[11px]"
+                }
                 bg-white/15 text-white font-medium whitespace-nowrap
               `}
             >
@@ -71,23 +102,34 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-20 md:pt-36 md:pb-28">
         <p
-          className={`mb-5 text-sm uppercase tracking-[0.25em] text-white/60 transition-all duration-1000 ${loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+          className={`mb-5 text-sm uppercase tracking-[0.25em] text-white/60 transition-all duration-1000 ${
+            loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
         >
           India-Based Merchant Exporter
         </p>
+
         <h1
-          className={`max-w-2xl font-serif text-4xl leading-[1.15] text-white md:text-5xl lg:text-6xl transition-all duration-1000 delay-200 ${loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+          className={`max-w-2xl font-serif text-4xl leading-[1.15] text-white md:text-5xl lg:text-6xl transition-all duration-1000 delay-200 ${
+            loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
         >
           Connecting Global Buyers with Premium Coir Products
         </h1>
+
         <p
-          className={`mt-6 max-w-lg text-base leading-relaxed text-white/80 md:text-lg transition-all duration-1000 delay-400 ${loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+          className={`mt-6 max-w-lg text-base leading-relaxed text-white/80 md:text-lg transition-all duration-1000 delay-400 ${
+            loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
         >
-          Reliable sourcing, trusted brands, and seamless export solutions for
-          retailers, growers, and agricultural professionals from India.
+          Reliable sourcing, trusted brands, and seamless export solutions for retailers, growers,
+          and agricultural professionals from India.
         </p>
+
         <div
-          className={`mt-8 flex flex-wrap gap-4 transition-all duration-1000 delay-500 ${loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+          className={`mt-8 flex flex-wrap gap-4 transition-all duration-1000 delay-500 ${
+            loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
         >
           <a
             href="#products"
@@ -103,9 +145,11 @@ export function HeroSection() {
           </a>
         </div>
 
-        {/* Mobile: product tags in a horizontal scroll strip */}
+        {/* Mobile: product tags */}
         <div
-          className={`mt-12 flex flex-wrap gap-2 lg:hidden transition-all duration-1000 delay-700 ${loaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+          className={`mt-12 flex flex-wrap gap-2 lg:hidden transition-all duration-1000 delay-700 ${
+            loaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
         >
           {floatingProducts.map((product) => (
             <span
@@ -122,29 +166,65 @@ export function HeroSection() {
       {/* Keyframe styles */}
       <style jsx>{`
         @keyframes playFloat0 {
-          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
-          25% { transform: translate(8px, -12px) rotate(1.2deg); }
-          50% { transform: translate(-6px, -4px) rotate(-1deg); }
-          75% { transform: translate(10px, 6px) rotate(0.8deg); }
+          0%,
+          100% {
+            transform: translate(0px, 0px) rotate(0deg);
+          }
+          25% {
+            transform: translate(8px, -12px) rotate(1.2deg);
+          }
+          50% {
+            transform: translate(-6px, -4px) rotate(-1deg);
+          }
+          75% {
+            transform: translate(10px, 6px) rotate(0.8deg);
+          }
         }
-         @keyframes playFloat1 {
-          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
-          20% { transform: translate(-10px, -10px) rotate(-1.4deg); }
-          55% { transform: translate(6px, -16px) rotate(1.1deg); }
-          80% { transform: translate(-4px, 8px) rotate(-0.6deg); }
+        @keyframes playFloat1 {
+          0%,
+          100% {
+            transform: translate(0px, 0px) rotate(0deg);
+          }
+          20% {
+            transform: translate(-10px, -10px) rotate(-1.4deg);
+          }
+          55% {
+            transform: translate(6px, -16px) rotate(1.1deg);
+          }
+          80% {
+            transform: translate(-4px, 8px) rotate(-0.6deg);
+          }
         }
         @keyframes playFloat2 {
-          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
-          30% { transform: translate(12px, 4px) rotate(1deg); }
-          60% { transform: translate(-8px, -14px) rotate(-1.2deg); }
-          85% { transform: translate(4px, -6px) rotate(0.7deg); }
+          0%,
+          100% {
+            transform: translate(0px, 0px) rotate(0deg);
+          }
+          30% {
+            transform: translate(12px, 4px) rotate(1deg);
+          }
+          60% {
+            transform: translate(-8px, -14px) rotate(-1.2deg);
+          }
+          85% {
+            transform: translate(4px, -6px) rotate(0.7deg);
+          }
         }
         @keyframes playFloat3 {
-          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
-          35% { transform: translate(-12px, 6px) rotate(-1deg); }
-          65% { transform: translate(8px, -12px) rotate(1.3deg); }
-          90% { transform: translate(-2px, -4px) rotate(-0.5deg); }
-        }  
+          0%,
+          100% {
+            transform: translate(0px, 0px) rotate(0deg);
+          }
+          35% {
+            transform: translate(-12px, 6px) rotate(-1deg);
+          }
+          65% {
+            transform: translate(8px, -12px) rotate(1.3deg);
+          }
+          90% {
+            transform: translate(-2px, -4px) rotate(-0.5deg);
+          }
+        }
       `}</style>
     </section>
   )

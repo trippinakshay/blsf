@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
@@ -26,6 +28,27 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <Header />
+
+      {/* Server-rendered representative image (helps Google pick the right SERP thumbnail) */}
+      <Image
+        src="/images/google-thumbnail-2026.jpg"
+        alt="Cocopeat blocks and grow bags - Bio Loop Supply"
+        width={1200}
+        height={630}
+        priority
+        style={{
+          position: "absolute",
+          width: 1,
+          height: 1,
+          padding: 0,
+          margin: -1,
+          overflow: "hidden",
+          clip: "rect(0,0,0,0)",
+          whiteSpace: "nowrap",
+          border: 0,
+        }}
+      />
+
       <HeroSection />
       <AboutSection />
       <ProductsSection />
